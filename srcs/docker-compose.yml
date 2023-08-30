@@ -16,11 +16,11 @@ services:
     restart: unless-stopped
     env_file: .env
     healthcheck:
-      test: mysqladmin ping --host=localhost -p${SQL_ROOT_PASSWORD}
+      test: mysqladmin ping --host=127.0.0.1 -p${SQL_ROOT_PASSWORD}
       interval: 5s
-      timeout: 1s
+      timeout: 3s
       retries: 20
-      start_period: 5s
+      start_period: 15s
 
   wordpress:
     image: wordpress
@@ -38,7 +38,7 @@ services:
     env_file: .env
     depends_on:
       mariadb:
-        condition: service_healthy    
+        condition: service_healthy
 
   nginx:
     image: nginx
@@ -57,11 +57,11 @@ services:
     restart: unless-stopped
     env_file: .env
     healthcheck:
-      test: 'curl -kfsSL https://localhost:443/status'
+      test: 'curl -kfs -SL https://127.0.0.1:443'
       interval: 5s
-      timeout: 1s
-      retries: 10
-      start_period: 5s
+      timeout: 3s
+      retries: 20
+      start_period: 15s
 
 volumes:
   mariadb:

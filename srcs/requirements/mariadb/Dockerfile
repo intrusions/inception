@@ -13,7 +13,7 @@ COPY ./conf/50-server.cnf /etc/mysql/mariadb.conf.d/50-server.cnf
 #stock unix sockets
 RUN mkdir -p /var/run/mysqld
 
-#stock data in db
+#database going to be stocked on this folder
 RUN mkdir -p /var/lib/mysql
 
 #ensure that the mariadb processes have the necessary permissions to access their respective directories

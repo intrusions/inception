@@ -12,6 +12,7 @@ clean: down
 
 fclean: clean
 	docker volume rm srcs_mariadb srcs_wordpress
+	sudo rm -rf /home/xel/data
 
 re: fclean all
 
@@ -27,3 +28,11 @@ ls:
 	docker network ls
 
 .Phony: all down clean fclean re logs ls
+
+
+## mysql connexion
+# docker exec -it mariadb mysql -u root -p
+# SHOW DATABASES;
+# USE inceptions;
+# SHOW TABLES;
+# SELECT * FROM wp_users;
