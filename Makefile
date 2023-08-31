@@ -1,7 +1,7 @@
 all: 
-	mkdir -p /home/xel/data
-	mkdir -p /home/xel/data/mariadb
-	mkdir -p /home/xel/data/wordpress
+	mkdir -p /home/jucheval/data
+	mkdir -p /home/jucheval/data/mariadb
+	mkdir -p /home/jucheval/data/wordpress
 	docker compose -f ./srcs/docker-compose.yml up -d --build
 
 down:
@@ -12,7 +12,7 @@ clean: down
 
 fclean: clean
 	docker volume rm srcs_mariadb srcs_wordpress
-	sudo rm -rf /home/xel/data
+	sudo rm -rf /home/jucheval/data
 
 re: fclean all
 

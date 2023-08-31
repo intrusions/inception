@@ -26,8 +26,8 @@ RUN chmod --recursive 755 /var/lib/mysql/
 EXPOSE 3306
 
 #copy our autoconfig script at the root of container and give it execution privilege 
-COPY ./tools/autocondig.sh ./
-RUN chmod 755 ./autocondig.sh
+COPY ./tools/autoconfig.sh ./
+RUN chmod 755 ./autoconfig.sh
 
 #execute our script at the container's launch
-ENTRYPOINT ["bash", "./autocondig.sh"]
+ENTRYPOINT ["bash", "./autoconfig.sh"]

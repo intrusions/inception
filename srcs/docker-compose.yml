@@ -69,13 +69,13 @@ volumes:
     driver_opts:
       type: 'none'
       o: 'bind'
-      device: '/home/xel/data/mariadb'
+      device: '/home/jucheval/data/mariadb'
   wordpress:
     driver: local
     driver_opts:
       type: 'none'
       o: 'bind'
-      device: '/home/xel/data/wordpress'
+      device: '/home/jucheval/data/wordpress'
 
 networks:
   inception:
