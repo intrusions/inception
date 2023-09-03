@@ -2,10 +2,10 @@
 cd /var/www/html/wordpress
 
 if ! wp core is-installed; then
-	#create and configure the wp-config.php file to set informations about db name and user
+	#create and configure the wp-config.php file to set informations about db name and db user
 	wp config create										\
 				--allow-root 								\
-				--dbname=${SQL_DATABASE}					\
+				--dbname=${SQL_DATABASE_NAME}					\
 				--dbuser=${SQL_USER}						\
 				--dbpass=${SQL_PASSWORD}					\
 				--dbhost=${SQL_HOST}						\
@@ -31,9 +31,7 @@ if ! wp core is-installed; then
 	wp cache flush --allow-root
 fi
 
-if [ ! -d /run/php ]; then
-	mkdir /run/php;
-fi
+mkdir -p /run/php;
 
 #start the PHP FastCGI
 exec /usr/sbin/php-fpm7.3 -F -R
